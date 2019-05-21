@@ -1,0 +1,3 @@
+# Meiko ETL Challenge Front
+
+This is the front application in angular. I do not have enought time to finnish it...
