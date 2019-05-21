@@ -1,0 +1,14 @@
+import {InjectionToken} from '@angular/core';
+
+export let APP_CONFIG = new InjectionToken('app.config');
+
+export const AppConfig: any = {
+  routes: {
+    movies: 'http://localhost:5000/movies',
+    error404: '404'
+  },
+  votesLimit: 3,
+  topMoviesLimit: 5,
+  snackBarDuration: 3000,
+  sentryDSN: 'https://38434a1b115f41d3a31e356cdc496c06@sentry.io/1315526'
+};

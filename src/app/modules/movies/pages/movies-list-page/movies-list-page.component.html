@@ -1,0 +1,49 @@
+<div id="left">
+  <h2 class="header__title" i18n="@@moviesList">Movies list</h2>
+  <div>
+    <mat-list id="loading-list" *ngIf="!movies">
+      <mat-list-item *ngFor="let i of [1,2,3,4,5,6,7,8]">
+        <img mat-list-avatar src="assets/images/default-movie.png">
+        <h3 mat-line>
+          <app-loading-placeholder [width]="'150px'" [height]="'0.9rem'"></app-loading-placeholder>
+        </h3>
+        <p mat-line>
+          <app-loading-placeholder [width]="'100px'" [height]="'0.9rem'"></app-loading-placeholder>
+        </p>
+        <div class="movie-actions">
+          <app-loading-placeholder [width]="'30px'" [height]="'0.9rem'"></app-loading-placeholder>
+
+          <mat-icon class="icon__like--grey">favorite</mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <mat-list>
+      <mat-list-item *ngFor="let movie of movies" [@fadeIn]="fadeIn">
+        <a mat-list-avatar [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+          <img class="cp" mat-list-avatar
+               [src]="'assets/images/default-movie.png'">
+        </a>
+        <h3 mat-line [class.cp]="movie.default">
+          <a [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+            {{movie.name}}
+          </a>
+        </h3>
+        <p mat-line [class.cp]="movie.default">
+          <a [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+            <span>{{movie.genre}}</span>
+          </a>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+<div id="right">
+  <div id="movies-json">
+    <h2 class="header__title" i18n="@@firstTwoMoviesById">Movies</h2>
+    <pre *ngIf="!movies">
+      <app-loading-placeholder [height]="'300px'"></app-loading-placeholder>
+    </pre>
+    <pre *ngIf="movies">{{movies | slice:0:2 | json}}</pre>
+  </div>
+</div>
+<div class="clear"></div>

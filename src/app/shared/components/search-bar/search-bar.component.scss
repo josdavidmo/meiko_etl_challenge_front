@@ -1,0 +1,19 @@
+@import "../../../styles/mixins";
+@import "../../../styles/colors";
+
+.movie-link {
+  text-decoration: none;
+}
+
+.mat-form-field {
+  color: white;
+  margin-right: 40px;
+}
+
+.mat-option{
+  color: black;
+}
+
+input{
+  color: white !important;
+}

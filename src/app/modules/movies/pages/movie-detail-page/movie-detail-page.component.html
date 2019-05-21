@@ -1,0 +1,15 @@
+<h1 class="header__title" i18n="@@movieDetail">movie detail</h1>
+<div class="container" *ngIf="!movie">
+  <app-movie-loading></app-movie-loading>
+</div>
+<div class="container" *ngIf="movie" [@fadeIn]="fadeIn">
+  <ng-container>
+    <app-movie-card [movie]="movie"></app-movie-card>
+    <div id="movie-json">
+      <pre>{{movie | json}}</pre>
+    </div>
+  </ng-container>
+</div>
+<button mat-raised-button type="button" (click)="goBack()" i18n="@@goBack">
+  Go back
+</button>

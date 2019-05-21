@@ -1,0 +1,24 @@
+<mat-form-field id="search-class">
+  <input matInput placeholder="Look for a criteria!"
+         [matAutocomplete]="moviesAutocomplete" [formControl]="movieFormControl">
+
+  <input matInput placeholder="Look for a movie!" [formControl]="movieFormControl">
+</mat-form-field>
+
+<mat-form-field id="search-input">
+  <input matInput placeholder="Look for a movie!" [formControl]="movieFormControl">
+</mat-form-field>
+
+<a class="language-link"
+   (click)="filterMovies(movieFormControl)">
+  <mat-icon>flag</mat-icon>
+  <span>Buscar</span>
+</a>
+
+
+<mat-autocomplete #moviesAutocomplete="matAutocomplete">
+  <mat-option *ngFor="let criteria of criterias"
+              [value]="criteria">
+  </mat-option>
+</mat-autocomplete>
+

@@ -1,0 +1,28 @@
+<mat-card class="movie-card" *ngIf="movie" [@fadeIn]="fadeIn">
+  <mat-card-header>
+    <a mat-card-avatar [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+      <img mat-card-avatar [src]="'assets/images/default-movie.png'">
+    </a>
+    <mat-card-title>
+      <a class="movie-detail-link" [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+        {{movie.name}}
+      </a>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <a class="movie-detail-link" [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+        {{movie.genre}}
+      </a>
+    </mat-card-subtitle>
+    <div class="flex-spacer"></div>
+    <div class="movie-actions">
+      {{movie.score}}
+    </div>
+  </mat-card-header>
+  <a class="movie-detail-link" [routerLink]="movie.default ? ['/' + appConfig.routes.movies + '/' + movie.id] : []">
+    <ngx-progressive-image-loader
+      [filter]="'blur(3px) drop-shadow(0 0 0.75rem crimson)'"
+      [placeholderImageSrc]="'assets/images/default-movie.png'">
+      <img src="'assets/images/default-movie.png'" alt="" ngxProgressiveImage/>
+    </ngx-progressive-image-loader>
+  </a>
+</mat-card>
